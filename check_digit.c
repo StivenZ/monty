@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * main - check the code for Holberton School students.
+ * check_digit - check the code for Holberton School students.
  * @arg: argument passed
  * Return: Always 0.
  */
