@@ -35,14 +35,16 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+FILE *fp;
+
 void get_line(char *filename);
 void (*_selector(char **, unsigned int))(stack_t **, unsigned int);
 
 void push(stack_t **, unsigned int);
-void pall(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
-void add(stack_t **stack, unsigned int line_number);
-void nop(stack_t **stack, unsigned int line_number);
+void pall(stack_t **, unsigned int);
+void pint(stack_t **, unsigned int);
+void pop(stack_t **, unsigned int);
+void swap(stack_t **, unsigned int);
+void add(stack_t **, unsigned int);
+void nop(stack_t **, unsigned int);
 #endif /* _MONTY_H_ */
