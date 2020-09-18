@@ -24,7 +24,6 @@ void push(stack_t **stack, unsigned int n)
 		(*stack)->prev = new_node;
 	}
 	(*stack) = new_node;
-printf("El elemento que guardamos es %d\n", (*stack)->n);
 }
 
 /**
@@ -34,10 +33,21 @@ printf("El elemento que guardamos es %d\n", (*stack)->n);
 */
 void pall(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
     (void)line_number;
-    printf("You are printing the stack\n");
 
+	stack_t *tmp;
+
+    if (*stack == NULL)
+    {
+        return;
+    }
+	tmp = (*stack);
+
+	while (tmp != NULL)
+	{
+		printf("%d\n", tmp->n);
+		tmp = tmp->next;
+	}
 }
 
 /**

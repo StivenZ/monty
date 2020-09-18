@@ -34,14 +34,6 @@ void get_line(char *filename)
 			continue;
 		_selector(clean_line, i)(&head, atoi(clean_line[1]));
 	}
-
-	if (!fgets(str, 1000, fp))
-	{
-		fprintf(stderr, "You reached the end of the file at line %d\n", i - 1);
-		fclose(fp);
-		exit(EXIT_FAILURE);
-	}
-
-
-	fclose(fp);
+	free_list(head);
+	head = NULL;
 }

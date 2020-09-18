@@ -38,6 +38,7 @@ typedef struct instruction_s
 FILE *fp;
 
 void get_line(char *filename);
+void free_list(stack_t *head);
 void (*_selector(char **, unsigned int))(stack_t **, unsigned int);
 
 void push(stack_t **, unsigned int);
