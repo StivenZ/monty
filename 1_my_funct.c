@@ -6,10 +6,9 @@
 */
 void swap(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
+	(void)stack;
+	(void)line_number;
 	printf("You just reomved the top element\n");
-	
 }
 
 /**
@@ -19,10 +18,9 @@ void swap(stack_t **stack, unsigned int line_number)
 */
 void add(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
+	(void)stack;
+	(void)line_number;
 	printf("You just reomved the top element\n");
-	
 }
 
 /**
@@ -32,8 +30,7 @@ void add(stack_t **stack, unsigned int line_number)
 */
 void nop(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
+	(void)stack;
+	(void)line_number;
 	printf("You just reomved the top element\n");
-	
 }

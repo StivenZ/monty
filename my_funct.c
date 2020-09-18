@@ -2,21 +2,21 @@
 /**
  * push - pushes an element to the stack
  * @stack: pointher to the linked list
- * @line_number: line number of the file
+ * @n: line number of the file
 */
 void push(stack_t **stack, unsigned int n)
 {
-    stack_t *new_node;
+	stack_t *new_node;
 
-    new_node = malloc(sizeof(stack_t));
-    if (!new_node)
-    {
-        fclose(fp);
-        fprintf(stderr, "Error: malloc failed\n");
-        exit(EXIT_FAILURE);
-    }
+	new_node = malloc(sizeof(stack_t));
+	if (!new_node)
+	{
+		fclose(fp);
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 
-    new_node->n = n;
+	new_node->n = n;
 	new_node->next = (*stack);
 	new_node->prev = NULL;
 	if (*stack)
@@ -33,14 +33,14 @@ void push(stack_t **stack, unsigned int n)
 */
 void pall(stack_t **stack, unsigned int line_number)
 {
-    (void)line_number;
+	(void)line_number;
 
 	stack_t *tmp;
 
-    if (*stack == NULL)
-    {
-        return;
-    }
+	if (*stack == NULL)
+	{
+		return;
+	}
 	tmp = (*stack);
 
 	while (tmp != NULL)
@@ -57,10 +57,9 @@ void pall(stack_t **stack, unsigned int line_number)
 */
 void pint(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
-    printf("You are printing the top element\n");
-    
+	(void)stack;
+	(void)line_number;
+	printf("You are printing the top element\n");
 }
 
 /**
@@ -70,8 +69,7 @@ void pint(stack_t **stack, unsigned int line_number)
 */
 void pop(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
-    printf("You just reomved the top element\n");
-    
+	(void)stack;
+	(void)line_number;
+	printf("You just reomved the top element\n");
 }

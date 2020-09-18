@@ -21,14 +21,12 @@ void get_line(char *filename)
 	{
 		j = 0;
 		token = strtok(str, " \n\t\v"), clean_line[j] = token;
-		// printf("The first token of the %d line is: %s\n", i, clean_line[j]);
-		if ((token = strtok(NULL, " \n\t\v")))
+		token = strtok(NULL, " \n\t\v");
+
+		if (token != NULL)
 		{
 			j++;
 			clean_line[j] = token;
-			// printf("You got in the second strtok and token is: %s\n", token);
-			// printf("Final string is: %s\n", *clean_line);
-			// printf("%s\n", token);
 		}
 		else
 			continue;

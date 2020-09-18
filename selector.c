@@ -1,8 +1,8 @@
 #include "monty.h"
 /**
  * _selector - chooses the right function to perform
- * @string: string to compare function with
- * @line: line number from file
+ * @strings: string to compare function with
+ * @linea: line number from file
  * Return: pointer to function
 */
 void (*_selector(char **strings, unsigned int linea))(stack_t **, unsigned int)
