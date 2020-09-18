@@ -8,8 +8,7 @@ void get_line(char *filename)
 {
 	unsigned int j, i = 1;
 	char *clean_line[1000], str[1000], *token;
-	FILE *fp;
-	stack_t **node = NULL;
+	stack_t *head = NULL;
 
 	fp = fopen(filename, "r");
 	if (fp == NULL)
@@ -33,7 +32,7 @@ void get_line(char *filename)
 		}
 		else
 			continue;
-		_selector(clean_line, i)(node, i);
+		_selector(clean_line, i)(&head, atoi(clean_line[1]));
 	}
 
 	if (!fgets(str, 1000, fp))

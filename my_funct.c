@@ -4,11 +4,27 @@
  * @stack: pointher to the linked list
  * @line_number: line number of the file
 */
-void push(stack_t **stack, unsigned int line_number)
+void push(stack_t **stack, unsigned int n)
 {
-    (void)stack;
+    stack_t *new_node;
 
-    printf("La línea en la que se ejecutó esta mierda es la %u\n", line_number);
+    new_node = malloc(sizeof(stack_t));
+    if (!new_node)
+    {
+        fclose(fp);
+        fprintf(stderr, "Error: malloc failed\n");
+        exit(EXIT_FAILURE);
+    }
+
+    new_node->n = n;
+	new_node->next = (*stack);
+	new_node->prev = NULL;
+	if (*stack)
+	{
+		(*stack)->prev = new_node;
+	}
+	(*stack) = new_node;
+printf("El elemento que guardamos es %d\n", (*stack)->n);
 }
 
 /**
