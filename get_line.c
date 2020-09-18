@@ -7,7 +7,7 @@
 void get_line(char *filename)
 {
 	unsigned int j, i = 1;
-	char *clean_line[1000], str[1000];
+	char *clean_line[1000], str[1000], *token;
 	FILE *fp;
 	stack_t **node = NULL;
 
@@ -18,21 +18,20 @@ void get_line(char *filename)
 		exit(EXIT_FAILURE);
 	}
 
-	for (i = 1; fgets(str, 100, fp) != NULL; i++)
+	for (i = 1; fgets(str, 1000, fp) != NULL; i++)
 	{
-		// printf("%s", str);
 		j = 0;
-		clean_line[j] = strtok(str, " \n\t\v");
-
-		printf("The first token of the %d line is: %s\n", i, clean_line[j]);
-		if (clean_line[j] != NULL)
+		token = strtok(str, " \n\t\v"), clean_line[j] = token;
+		// printf("The first token of the %d line is: %s\n", i, clean_line[j]);
+		if ((token = strtok(NULL, " \n\t\v")))
 		{
 			j++;
-			clean_line[j] = strtok(NULL, " \n\t\v");
-			printf("You got in the second strtok and token is: %s\n", clean_line[j]);
-			printf("Final string is: %s\n", *clean_line);
+			clean_line[j] = token;
+			// printf("You got in the second strtok and token is: %s\n", token);
+			// printf("Final string is: %s\n", *clean_line);
+			// printf("%s\n", token);
 		}
-		if (clean_line[j] == NULL)
+		else
 			continue;
 		_selector(clean_line, i)(node, i);
 	}

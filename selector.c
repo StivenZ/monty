@@ -8,8 +8,13 @@
 void (*_selector(char **strings, unsigned int linea))(stack_t **, unsigned int)
 {
 	instruction_t functions[] = {
-		//{"pall", pall},
+		{"pall", pall},
 		{"push", push},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 
@@ -17,12 +22,12 @@ void (*_selector(char **strings, unsigned int linea))(stack_t **, unsigned int)
 
 	while (i < 2)
 	{
-		if (strcmp(functions[i].opcode, strings[0]) == 0)
+		if (functions[i].opcode && strcmp(functions[i].opcode, strings[0]) == 0)
 		{
 			return (functions[i].f);
 		}
 		i++;
 	}
-	fprintf(stderr, "L%u: unknown instruction %s\n", linea, strings[0]);
+	fprintf(stderr, "L%u: unknown instruction%s\n", linea, strings[0]);
 	exit(EXIT_FAILURE);
 }
