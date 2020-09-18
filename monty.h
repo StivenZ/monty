@@ -34,7 +34,8 @@ typedef struct instruction_s
 } instruction_t;
 
 FILE *fp;
-
+int check_digit(char *arg);
+int _isdigit(int c);
 void get_line(char *filename);
 void free_list(stack_t *head);
 void (*_selector(char **, unsigned int))(stack_t **, unsigned int);

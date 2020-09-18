@@ -21,16 +21,23 @@ void get_line(char *filename)
 	{
 		j = 0;
 		token = strtok(str, " \n\t\v"), clean_line[j] = token;
-		token = strtok(NULL, " \n\t\v");
-
 		if (token != NULL)
 		{
-			j++;
-			clean_line[j] = token;
+			while ((token = strtok(NULL, " \n\t\v")))
+			{
+				if (check_digit(token) == 1)
+					continue;
+				else
+				{
+					j++;
+					clean_line[j] = token;
+					break;
+				}
+			}
+			_selector(clean_line, i)(&head, atoi(clean_line[1]));
 		}
 		else
 			continue;
-		_selector(clean_line, i)(&head, atoi(clean_line[1]));
 	}
 	free_list(head);
 	head = NULL;
