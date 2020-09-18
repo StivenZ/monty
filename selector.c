@@ -1,0 +1,28 @@
+#include "monty.h"
+/**
+ * _selector - chooses the right function to perform
+ * @string: string to compare function with
+ * @line: line number from file
+ * Return: pointer to function
+*/
+void (*_selector(char **strings, unsigned int linea))(stack_t **, unsigned int)
+{
+	instruction_t functions[] = {
+		//{"pall", pall},
+		{"push", push},
+		{NULL, NULL}
+	};
+
+	int i = 0;
+
+	while (i < 2)
+	{
+		if (strcmp(functions[i].opcode, strings[0]) == 0)
+		{
+			return (functions[i].f);
+		}
+		i++;
+	}
+	fprintf(stderr, "L%u: unknown instruction %s\n", linea, strings[0]);
+	exit(EXIT_FAILURE);
+}
