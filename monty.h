@@ -4,6 +4,21 @@
 #include <string.h>
 #include <stdlib.h>
 /**
+ * struct global_struct - global variables
+ * @fp: file descriptor
+ * @line: number of the current line in the file
+ *
+ * Description: global variables to return lines and close fd
+ */
+typedef struct global_struct
+{
+	FILE *fp;
+	unsigned int line_number;
+} global_t;
+
+global_t global_var;
+
+/**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
@@ -33,7 +48,6 @@ typedef struct instruction_s
 		void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-FILE *fp;
 int check_digit(char *arg);
 int _isdigit(int c);
 void get_line(char *filename);
