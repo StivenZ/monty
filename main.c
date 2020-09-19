@@ -16,6 +16,6 @@ int main(int argc, char **argv)
 	}
 
 	get_line(argv[1]);
-	fclose(fp);
+	fclose(global_var.fp);
 	return (0);
 }

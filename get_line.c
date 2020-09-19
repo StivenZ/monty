@@ -6,18 +6,19 @@
 */
 void get_line(char *filename)
 {
-	unsigned int j, i = 1;
+	unsigned int j;
+
 	char *clean_line[1000], str[1000], *token;
 	stack_t *head = NULL;
 
-	fp = fopen(filename, "r");
-	if (fp == NULL)
+	global_var.fp = fopen(filename, "r");
+	if (global_var.fp == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
 
-	for (i = 1; fgets(str, 1000, fp) != NULL; i++)
+	for (global_var.line_number = 1; fgets(str, 1000, global_var.fp) != NULL; global_var.line_number++)
 	{
 		j = 0;
 		token = strtok(str, " \n\t\v"), clean_line[j] = token;
@@ -34,7 +35,7 @@ void get_line(char *filename)
 					break;
 				}
 			}
-			_selector(clean_line, i)(&head, atoi(clean_line[1]));
+			_selector(clean_line, global_var.line_number)(&head, atoi(clean_line[1]));
 		}
 		else
 			continue;

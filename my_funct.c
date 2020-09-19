@@ -11,7 +11,7 @@ void push(stack_t **stack, unsigned int n)
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
 	{
-		fclose(fp);
+		fclose(global_var.fp);
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
@@ -57,8 +57,15 @@ void pall(stack_t **stack, unsigned int line_number)
 */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	(void)stack;
 	(void)line_number;
+	if ((*stack) == NULL)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty", global_var.line_number);
+		fclose(global_var.fp);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%d\n", (*stack)->n);
 }
 
 /**
