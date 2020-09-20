@@ -8,7 +8,7 @@ void push(stack_t **stack, unsigned int n)
 {
 	stack_t *new_node;
 
-	if (!g_st.clean[1])
+	if (_isdigit(g_st.clean[1]) == 0)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", g_st.line_n);
 		c_end();

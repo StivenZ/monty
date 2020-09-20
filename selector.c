@@ -15,12 +15,13 @@ void (*_selector(char **strings, unsigned int linea))(stack_t **, unsigned int)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{"sub", sub},
 		{NULL, NULL}
 	};
 
 	int i = 0;
 
-	while (i < 7)
+	while (i < 8)
 	{
 		if (functions[i].opcode && strcmp(functions[i].opcode, strings[0]) == 0)
 		{
@@ -29,6 +30,7 @@ void (*_selector(char **strings, unsigned int linea))(stack_t **, unsigned int)
 		i++;
 	}
 	fprintf(stderr, "L%u: unknown instruction %s\n", linea, strings[0]);
+	free_list(g_st.head);
 	fclose(g_st.fp);
 	exit(EXIT_FAILURE);
 }
