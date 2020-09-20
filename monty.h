@@ -6,7 +6,8 @@
 /**
  * struct global_struct - global variables
  * @fp: file descriptor
- * @line: number of the current line in the file
+ * @line_n: number of the current line in the file
+ * @clean: array from line in file
  *
  * Description: global variables to return lines and close fd
  */
@@ -17,7 +18,7 @@ typedef struct global_struct
 	unsigned int line_n;
 } global_t;
 
-global_t g_var;
+global_t g_st;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
