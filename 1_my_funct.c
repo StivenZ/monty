@@ -31,3 +31,12 @@ void nop(stack_t **stack, unsigned int line_number)
 	(void)stack;
 	(void)line_number;
 }
+
+/**
+ * c_end - default: closes fd and exits err message
+*/
+void c_end(void)
+{
+	fclose(g_var.fp);
+	exit(EXIT_FAILURE);
+}

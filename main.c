@@ -7,8 +7,6 @@
 */
 int main(int argc, char **argv)
 {
-	(void)argc;
-
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -16,6 +14,6 @@ int main(int argc, char **argv)
 	}
 
 	get_line(argv[1]);
-	fclose(global_var.fp);
+	fclose(g_var.fp);
 	return (0);
 }

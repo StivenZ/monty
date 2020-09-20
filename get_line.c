@@ -8,20 +8,20 @@ void get_line(char *filename)
 {
 	unsigned int j;
 
-	char *clean_line[1000], str[1000], *token;
+	char str[1000], *token;
 	stack_t *head = NULL;
 
-	global_var.fp = fopen(filename, "r");
-	if (global_var.fp == NULL)
+	g_var.fp = fopen(filename, "r");
+	if (g_var.fp == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
 
-	for (global_var.line_number = 1; fgets(str, 1000, global_var.fp) != NULL; global_var.line_number++)
+	for (g_var.line_n = 1; fgets(str, 1000, g_var.fp) != NULL; g_var.line_n++)
 	{
 		j = 0;
-		token = strtok(str, " \n\t\v"), clean_line[j] = token;
+		token = strtok(str, " \n\t\v"), g_var.clean[j] = token;
 		if (token != NULL)
 		{
 			while ((token = strtok(NULL, " \n\t\v")))
@@ -31,15 +31,16 @@ void get_line(char *filename)
 				else
 				{
 					j++;
-					clean_line[j] = token;
+					g_var.clean[j] = token;
 					break;
 				}
 			}
-			_selector(clean_line, global_var.line_number)(&head, atoi(clean_line[1]));
+			_selector(g_var.clean, g_var.line_n)(&head, atoi(g_var.clean[1]));
 		}
 		else
 			continue;
 	}
-	free_list(head);
+	if (head != NULL)
+		free_list(head);
 	head = NULL;
 }

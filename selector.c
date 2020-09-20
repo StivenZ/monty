@@ -20,7 +20,7 @@ void (*_selector(char **strings, unsigned int linea))(stack_t **, unsigned int)
 
 	int i = 0;
 
-	while (i < 2)
+	while (i < 7)
 	{
 		if (functions[i].opcode && strcmp(functions[i].opcode, strings[0]) == 0)
 		{
@@ -29,6 +29,6 @@ void (*_selector(char **strings, unsigned int linea))(stack_t **, unsigned int)
 		i++;
 	}
 	fprintf(stderr, "L%u: unknown instruction %s\n", linea, strings[0]);
-	fclose(global_var.fp);
+	fclose(g_var.fp);
 	exit(EXIT_FAILURE);
 }

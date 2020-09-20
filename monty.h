@@ -12,11 +12,12 @@
  */
 typedef struct global_struct
 {
+	char *clean[1000];
 	FILE *fp;
-	unsigned int line_number;
+	unsigned int line_n;
 } global_t;
 
-global_t global_var;
+global_t g_var;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -48,6 +49,7 @@ typedef struct instruction_s
 		void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void c_end(void);
 int check_digit(char *arg);
 int _isdigit(int c);
 void get_line(char *filename);
