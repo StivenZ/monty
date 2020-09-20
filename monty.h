@@ -4,23 +4,6 @@
 #include <string.h>
 #include <stdlib.h>
 /**
- * struct global_struct - global variables
- * @fp: file descriptor
- * @line_n: number of the current line in the file
- * @clean: array from line in file
- *
- * Description: global variables to return lines and close fd
- */
-typedef struct global_struct
-{
-	char *clean[1000];
-	FILE *fp;
-	unsigned int line_n;
-} global_t;
-
-global_t g_st;
-
-/**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
@@ -37,6 +20,24 @@ typedef struct stack_s
 } stack_t;
 
 /**
+ * struct global_struct - global variables
+ * @fp: file descriptor
+ * @line_n: number of the current line in the file
+ * @clean: array from line in file
+ *
+ * Description: global variables to return lines and close fd
+ */
+typedef struct global_struct
+{
+	char *clean[1000];
+	FILE *fp;
+	unsigned int line_n;
+	stack_t *head;
+} global_t;
+
+global_t g_st;
+
+/**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
  * @f: function to handle the opcode
@@ -51,8 +52,7 @@ typedef struct instruction_s
 } instruction_t;
 
 void c_end(void);
-int check_digit(char *arg);
-int _isdigit(int c);
+int _isdigit(char *c);
 void get_line(char *filename);
 void free_list(stack_t *head);
 void (*_selector(char **, unsigned int))(stack_t **, unsigned int);
@@ -64,4 +64,5 @@ void pop(stack_t **, unsigned int);
 void swap(stack_t **, unsigned int);
 void add(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
+void sub(stack_t **, unsigned int);
 #endif /* _MONTY_H_ */
