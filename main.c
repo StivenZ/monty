@@ -14,6 +14,6 @@ int main(int argc, char **argv)
 	}
 
 	get_line(argv[1]);
-	fclose(g_var.fp);
+	fclose(g_st.fp);
 	return (0);
 }

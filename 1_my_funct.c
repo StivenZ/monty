@@ -37,6 +37,6 @@ void nop(stack_t **stack, unsigned int line_number)
 */
 void c_end(void)
 {
-	fclose(g_var.fp);
+	fclose(g_st.fp);
 	exit(EXIT_FAILURE);
 }

@@ -8,9 +8,9 @@ void push(stack_t **stack, unsigned int n)
 {
 	stack_t *new_node;
 
-	if (!g_var.clean[1])
+	if (!g_st.clean[1])
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", g_var.line_n);
+		fprintf(stderr, "L%u: usage: push integer\n", g_st.line_n);
 		c_end();
 	}
 
@@ -65,7 +65,7 @@ void pint(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	if ((*stack) == NULL)
 	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n", g_var.line_n);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", g_st.line_n);
 		c_end();
 	}
 
@@ -82,7 +82,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	if ((*stack) == NULL)
 	{
-		fprintf(stderr, "L%u: can't pop an empty stack\n", g_var.line_n);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", g_st.line_n);
 		c_end();
 	}
 
