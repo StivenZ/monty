@@ -6,12 +6,17 @@
  */
 int _isdigit(char *c)
 {
-	if ((strlen(c) != 1) || c == NULL)
+	unsigned int i;
+
+	if ((strlen(c) < 1) || c == NULL)
 		return (0);
 
-	if ((((int)*c) >= 48) && (((int)*c) <= 57))
+	for (i = 0; i < strlen(c); i++)
 	{
-		return (1);
+		if ((((int)c[i]) >= 48) && (((int)c[i]) <= 57) && c[i] != '\0')
+			continue;
+		else
+			return (0);
 	}
-	return (0);
+	return (1);
 }
