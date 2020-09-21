@@ -17,6 +17,7 @@ void (*_selector(char **strings, unsigned int linea))(stack_t **, unsigned int)
 		{"nop", nop},
 		{"sub", sub},
 		{"mul", mul},
+		{"mod", mod},
 		{NULL, NULL}
 	};
 
