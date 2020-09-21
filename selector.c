@@ -32,7 +32,8 @@ void (*_selector(char **strings, unsigned int linea))(stack_t **, unsigned int)
 		i++;
 	}
 	fprintf(stderr, "L%u: unknown instruction %s\n", linea, strings[0]);
-	free_list(g_st.head);
+	if (g_st.head)
+		free_list(g_st.head);
 	fclose(g_st.fp);
 	exit(EXIT_FAILURE);
 }
