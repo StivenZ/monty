@@ -24,6 +24,7 @@ typedef struct stack_s
  * @fp: file descriptor
  * @line_n: number of the current line in the file
  * @clean: array from line in file
+ * @head: pointer to the stack's head
  *
  * Description: global variables to return lines and close fd
  */
@@ -52,6 +53,7 @@ typedef struct instruction_s
 } instruction_t;
 
 void c_end(void);
+unsigned int _strlen(char *str);
 int _isdigit(char *c);
 void get_line(char *filename);
 void free_list(stack_t *head);

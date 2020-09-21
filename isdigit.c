@@ -8,10 +8,10 @@ int _isdigit(char *c)
 {
 	unsigned int i;
 
-	if ((strlen(c) < 1) || c == NULL)
+	if ((_strlen(c) < 1) || c == NULL)
 		return (0);
 
-	for (i = 0; i < strlen(c); i++)
+	for (i = 0; i < _strlen(c); i++)
 	{
 		if ((((int)c[i]) >= 48) && (((int)c[i]) <= 57) && c[i] != '\0')
 			continue;

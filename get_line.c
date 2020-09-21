@@ -7,8 +7,8 @@
 void get_line(char *filename)
 {
 	char str[1000], *token;
-	g_st.head = NULL;
 
+	g_st.head = NULL;
 	g_st.fp = fopen(filename, "r");
 	if (g_st.fp == NULL)
 	{
