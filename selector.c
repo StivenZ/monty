@@ -16,12 +16,13 @@ void (*_selector(char **strings, unsigned int linea))(stack_t **, unsigned int)
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
+		{"mul", mul},
 		{NULL, NULL}
 	};
 
 	int i = 0;
 
-	while (i < 8)
+	while (i < 10)
 	{
 		if (functions[i].opcode && strcmp(functions[i].opcode, strings[0]) == 0)
 		{
