@@ -67,4 +67,5 @@ void swap(stack_t **, unsigned int);
 void add(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
 void sub(stack_t **, unsigned int);
+void div(stack_t **, unsigned int);
 #endif /* _MONTY_H_ */
