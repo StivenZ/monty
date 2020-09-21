@@ -23,7 +23,7 @@ void (*_selector(char **strings, unsigned int linea))(stack_t **, unsigned int)
 
 	int i = 0;
 
-	while (i < 10)
+	while (i < 11)
 	{
 		if (functions[i].opcode && strcmp(functions[i].opcode, strings[0]) == 0)
 		{
